@@ -20,15 +20,15 @@ sh <(curl -s "https://raw.githubusercontent.com/cloudboot/cli-docker/main/instal
 ```
 
 #### Windows
-To build the Docker image in a PowerShell terminal, run the following command:
+To build the Docker image in a PowerShell terminal(Run as administrator), run the following command:
 
 ```commandline
-curl -s "https://raw.githubusercontent.com/cloudboot/cli-docker/main/Dockerfile" -OutFile Dockerfile ; docker build -t "cloudboot:latest" -f .\Dockerfile . ; Remove-Item -Path .\Dockerfile
+(Invoke-WebRequest -Uri "https://raw.githubusercontent.com/cloudboot/cli-docker/main/Dockerfile" -Method Get -ContentType Text).Content | docker build -t "cloudboot:latest" -
 ```
 
 Then, run the configuration script:
 ```commandline
-curl -s "https://raw.githubusercontent.com/cloudboot/cli-docker/main/install.sh" | Invoke-Expression
+(Invoke-WebRequest -Uri "https://raw.githubusercontent.com/cloudboot/cli-docker/main/install.ps1" -Method Get -ContentType Text).Content | Invoke-Expression
 ```
 
 ##### Please note:
